@@ -10,9 +10,31 @@ from helper import *
 
 
 def MyAnswer(self):
-   # please put in your answer  here
+   ptr1 = None
+   ptr2 = None
+   dup = None
+   ptr1 = self.headval
+   while (ptr1 != None and ptr1.nextval != None):
+
+      ptr2 = ptr1
+      while (ptr2.nextval != None):
+
+         if (ptr1.dataval == ptr2.nextval.dataval):
+
+            dup = ptr2.nextval
+            ptr2.nextval = ptr2.nextval.nextval
+         else:
+            ptr2 = ptr2.nextval
+
+      ptr1 = ptr1.nextval
+
+   printval = self.headval
    answer = ""
-   print(answer)
+   while printval is not None:
+      answer += printval.dataval
+      
+      printval = printval.nextval
+   print (answer)
 
 
 MyAnswer(list)
